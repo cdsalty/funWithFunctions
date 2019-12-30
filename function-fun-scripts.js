@@ -38,7 +38,18 @@ function isValidPassword2(password, username) {
   return true;
 }
 
-console.log(isValidPassword2("Bones4ever", "Daisy"));
-console.log(isValidPassword2("LoveBones", "Daisy"));
-console.log(isValidPassword2("LoveCat", "Daisy"));
+console.log(isValidPassword2("Bones4ever", "Daisy")); // true -> passes
+console.log(isValidPassword2("LoveBones", "Daisy")); // true -> passes
+console.log(isValidPassword2("LoveCat", "Daisy")); // false -> doesn't pass
 // or a straight-forward ternary operator would work as well
+
+function isValidPassword3(password, username) {
+  const tooshort = password.length < 8;
+  const has2MuchSpace = password.indexOf(" ") !== -1;
+  const tooSimilar = password.indexOf(username) !== -1;
+  if (tooshort || has2MuchSpace || tooSimilar) return false;
+  return true;
+}
+
+console.log(isValidPassword3("LoveBones", "Daisy")); // true -> passes
+console.log(isValidPassword3("LoveCat", "Daisy")); // false -> doesn't pass
