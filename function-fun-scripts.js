@@ -24,8 +24,8 @@ function isValidPassword(password, username) {
   return true;
 }
 
-console.log(isValidPassword("happy1", "christopher"));
-console.log(isValidPassword("happyness1", "christopher"));
+// console.log(isValidPassword("happy1", "christopher"));
+// console.log(isValidPassword("happyness1", "christopher"));
 
 function isValidPassword2(password, username) {
   if (
@@ -38,9 +38,9 @@ function isValidPassword2(password, username) {
   return true;
 }
 
-console.log(isValidPassword2("Bones4ever", "Daisy")); // true -> passes
-console.log(isValidPassword2("LoveBones", "Daisy")); // true -> passes
-console.log(isValidPassword2("LoveCat", "Daisy")); // false -> doesn't pass
+// console.log(isValidPassword2("Bones4ever", "Daisy")); // true -> passes
+// console.log(isValidPassword2("LoveBones", "Daisy")); // true -> passes
+// console.log(isValidPassword2("LoveCat", "Daisy")); // false -> doesn't pass
 // or a straight-forward ternary operator would work as well
 
 function isValidPassword3(password, username) {
@@ -51,5 +51,22 @@ function isValidPassword3(password, username) {
   return true;
 }
 
-console.log(isValidPassword3("LoveBones", "Daisy")); // true -> passes
-console.log(isValidPassword3("LoveCat", "Daisy")); // false -> doesn't pass
+// console.log(isValidPassword3("LoveBones", "Daisy")); // true -> passes
+// console.log(isValidPassword3("LoveCat", "Daisy")); // false -> doesn't pass
+
+/*
+2. Write a function to find the average value in an array of numbers
+avg([0, 50]) should return 25
+*/
+function avg(array) {
+  let total = 0;
+  for (let num of array) {
+    // add them together
+    total += num;
+  }
+  // divide by the number of nums
+  let result = total / array.length;
+  return result;
+}
+console.log(avg([3, 14, 17, 25, 77]));
+console.log(avg([25, 50, 75, 100]));
