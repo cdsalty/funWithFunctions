@@ -54,7 +54,7 @@ function isValidPassword3(password, username) {
 // console.log(isValidPassword3("LoveBones", "Daisy")); // true -> passes
 // console.log(isValidPassword3("LoveCat", "Daisy")); // false -> doesn't pass
 
-/*
+/* ----------------------------------------------------_
 2. Write a function to find the average value in an array of numbers
 avg([0, 50]) should return 25
 */
@@ -62,11 +62,45 @@ function avg(array) {
   let total = 0;
   for (let num of array) {
     // add them together
-    total += num;
+    // total += num;
+    total = num + total;
   }
-  // divide by the number of nums
   let result = total / array.length;
   return result;
+  // return total/array.length;
 }
-console.log(avg([3, 14, 17, 25, 77]));
-console.log(avg([25, 50, 75, 100]));
+// console.log(avg([3, 14, 17, 25, 77]));
+// console.log(avg([25, 50, 75, 100]));
+
+// write function using forEach loop
+
+/* ----------------------------------------------------
+3. Write a function to determine if a sentence is a pangram. (a sentence that contains every 
+  letter of the alphabet.)
+  isPangram('The five boxing wizards jump quickly'); // return true
+*/
+
+function isPangram(sentence) {
+  let lowerCased = sentence.toLowerCase(); // make the sentence lowerCased
+  for (let char of "abcdefghijklmnopqrstuvwxyz") {
+    // if (sentence.indexOf(char) === -1) {
+    if (lowerCased.indexOf(char) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+/* or...  
+function isPangram(sentence) {
+  let lowerCased = sentence.toLowerCase(); // make the sentence lowerCased
+  for (let char of "abcdefghijklmnopqrstuvwxyz") {
+    // if (sentence.indexOf(char) === -1) {
+    if (!lowerCased.includes(char) === -1) {  <-- if lowercased DOES NOT include that char, return false
+      return false;
+    }
+  }
+  return true;
+}
+*/
+
+console.log(isPangram("The five boxing wizards jump quickly")); // returns true
