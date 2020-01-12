@@ -15,7 +15,7 @@ function isValidPassword(password, username) {
   if (password.length < 8) {
     return false;
   }
-  if (password.indexOf(" ") !== -1) {
+  if (password.indexOf(' ') !== -1) {
     return false;
   }
   if (password.indexOf(username) !== -1) {
@@ -30,7 +30,7 @@ function isValidPassword(password, username) {
 function isValidPassword2(password, username) {
   if (
     password.length < 8 ||
-    password.indexOf(" ") !== -1 ||
+    password.indexOf(' ') !== -1 ||
     password.indexOf(username) !== -1
   ) {
     return false;
@@ -45,7 +45,7 @@ function isValidPassword2(password, username) {
 
 function isValidPassword3(password, username) {
   const tooshort = password.length < 8;
-  const has2MuchSpace = password.indexOf(" ") !== -1;
+  const has2MuchSpace = password.indexOf(' ') !== -1;
   const tooSimilar = password.indexOf(username) !== -1;
   if (tooshort || has2MuchSpace || tooSimilar) return false;
   return true;
@@ -82,7 +82,7 @@ function avg(array) {
 
 function isPangram(sentence) {
   let lowerCased = sentence.toLowerCase(); // make the sentence lowerCased
-  for (let char of "abcdefghijklmnopqrstuvwxyz") {
+  for (let char of 'abcdefghijklmnopqrstuvwxyz') {
     // if (sentence.indexOf(char) === -1) {
     if (lowerCased.indexOf(char) === -1) {
       return false;
@@ -103,4 +103,37 @@ function isPangram(sentence) {
 }
 */
 
-console.log(isPangram("The five boxing wizards jump quickly")); // returns true
+// console.log(isPangram("The five boxing wizards jump quickly")); // returns true
+
+/*
+4. Find the sum of ones inside a 2D Array
+*/
+const numbers = [
+  [0, 1, 1],
+  [1, 0, 0],
+  [0, 0, 1]
+];
+// numbers.length = 3
+
+// each row
+// numbers[0] = [0,1,1]
+// numbers[1] = [1,0,0]
+
+// each column inside the individual row
+// numbers[0][1]; = 1 // returns the second number in the first array
+// console.log(numbers[0][1]);
+let sum = 0;
+// traditional for loop for visualiztion
+for (let rowIndex = 0; rowIndex < numbers.length; rowIndex++) {
+  // each single row as a whole
+  const row = numbers[rowIndex]; // will either be the first, second or third row depending on which iteration it's own
+  // the next for loop will need to work off the current row above
+  for (let columnIndex = 0; columnIndex < row.length; columnIndex++) {
+    // from the single row, each column within that row
+    const number = row[columnIndex];
+    if (number === 1) {
+      sum++; // take the one and add it to the sum with a starting value of 0
+    }
+  }
+}
+// console.log(sum); // returns 4;
